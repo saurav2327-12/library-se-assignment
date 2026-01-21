@@ -1,6 +1,5 @@
 class Library:
     def __init__(self):
-        # book_id -> {title, author, status}
         self.books = {}
 
     # ---------- Sprint 1 ----------
@@ -29,3 +28,13 @@ class Library:
             raise ValueError("Book does not exist")
 
         self.books[book_id]["status"] = "available"
+
+    # ---------- Sprint 3 ----------
+    def generate_report(self):
+        report = ["Book ID | Title | Author | Status"]
+
+        for book_id, info in self.books.items():
+            line = f"{book_id} | {info['title']} | {info['author']} | {info['status']}"
+            report.append(line)
+
+        return "\n".join(report)
